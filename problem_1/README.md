@@ -2,7 +2,7 @@
 
 Write a program that takes an input string, and returns which characters are consecutively repeated the most times.  If there are multiple characters, return them in `sort` order.
 
-* "aaddddffffaa" will return `[f, d]`
+* "aaddddffffaa" will return `[d, f]`
 * "cat dog \_\_\_" will return `[_]`
 
 ### Test
