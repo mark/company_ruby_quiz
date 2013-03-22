@@ -33,4 +33,14 @@ class ConsecutiveTest < Test::Unit::TestCase
     assert_equal %w(a b), c.max_consecutive_characters
   end
   
+  def test_not_highest_letter_most_common
+    c = Consecutive.new "aaaaaaaaaaaaaaaaaaaaaaaaaaaazbb"
+    assert_equal %w(a), c.max_consecutive_characters
+  end
+
+  def test_multiple_character_instances
+    c = Consecutive.new "aaabba"
+    assert_equal %w(a), c.max_consecutive_characters
+  end
+  
 end
