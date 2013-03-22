@@ -23,6 +23,10 @@ class CountryIpTest < Test::Unit::TestCase
     end
   end
 
+  def test_csv_file_not_changed
+    assert_equal '22620fdd50ebaef84dd3d9521beb6a7c', `md5 -q IpToCountry.csv`.strip
+  end
+  
   def test_67_99_163_76_is_United_States
     assert_equal "United States", @country_ip.search("67.99.163.76")
   end
