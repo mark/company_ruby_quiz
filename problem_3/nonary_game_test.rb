@@ -1,5 +1,5 @@
 require 'test/unit'
-require 'nonary_game'
+require './nonary_game'
 
 class NonaryGameTest < Test::Unit::TestCase
 

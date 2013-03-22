@@ -1,5 +1,5 @@
 require 'test/unit'
-require 'country_ip'
+require './country_ip'
 
 class CountryIpTest < Test::Unit::TestCase
 

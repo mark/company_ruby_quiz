@@ -1,5 +1,5 @@
 require 'test/unit'
-require 'consecutive'
+require './consecutive'
 
 class ConsecutiveTest < Test::Unit::TestCase
 
