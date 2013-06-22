@@ -24,7 +24,12 @@ class CountryIpTest < Test::Unit::TestCase
   end
 
   def test_csv_file_not_changed
-    assert_equal '22620fdd50ebaef84dd3d9521beb6a7c', `md5 -q IpToCountry.csv`.strip
+    checksum = '22620fdd50ebaef84dd3d9521beb6a7c'
+    if which('md5')
+      assert_equal checksum, `md5 -q IpToCountry.csv`.strip
+    else
+      assert_equal checksum, `md5sum IpToCountry.csv`.split(' ')[0].strip
+    end
   end
   
   def test_67_99_163_76_is_United_States
@@ -38,5 +43,17 @@ class CountryIpTest < Test::Unit::TestCase
   def test_200_100_100_100_is_Brazil
     assert_equal "Brazil", @country_ip.search("200.100.100.100")
   end
-  
+
+  # Thanks to: http://stackoverflow.com/a/5471032
+  def which(cmd)
+    exts = ENV['PATHEXT'] ? ENV['PATHEXT'].split(';') : ['']
+    ENV['PATH'].split(File::PATH_SEPARATOR).each do |path|
+      exts.each { |ext|
+        exe = File.join(path, "#{cmd}#{ext}")
+        return exe if File.executable? exe
+      }
+    end
+    return nil
+  end
+
 end
