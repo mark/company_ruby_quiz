@@ -1,4 +1,5 @@
 require 'test/unit'
+require 'digest'
 require './country_ip'
 
 class CountryIpTest < Test::Unit::TestCase
@@ -24,7 +25,7 @@ class CountryIpTest < Test::Unit::TestCase
   end
 
   def test_csv_file_not_changed
-    assert_equal '22620fdd50ebaef84dd3d9521beb6a7c', `md5 -q IpToCountry.csv`.strip
+    assert_equal '22620fdd50ebaef84dd3d9521beb6a7c', Digest::MD5.hexdigest(File.read('IpToCountry.csv'))
   end
   
   def test_67_99_163_76_is_United_States
@@ -38,5 +39,5 @@ class CountryIpTest < Test::Unit::TestCase
   def test_200_100_100_100_is_Brazil
     assert_equal "Brazil", @country_ip.search("200.100.100.100")
   end
-  
+
 end
