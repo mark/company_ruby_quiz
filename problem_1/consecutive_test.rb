@@ -1,7 +1,7 @@
-require 'test/unit'
+require 'minitest/autorun'
 require './consecutive'
 
-class ConsecutiveTest < Test::Unit::TestCase
+class ConsecutiveTest < Minitest::Test
 
   def test_max_consecutive_characters_should_return_an_array
     c = Consecutive.new "aaddddffffaa"
