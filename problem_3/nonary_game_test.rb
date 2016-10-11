@@ -1,9 +1,9 @@
-require 'test/unit'
+require 'minitest/autorun'
 require './nonary_game'
 
-class NonaryGameTest < Test::Unit::TestCase
+class NonaryGameTest < Minitest::Test
 
-  SOLUTIONS = %w( 12357 12456 135 1458 15678 2358 2457 3456 34578 567 )
+  SOLUTIONS = %w( 12357 12456 135 1458 15678 2358 2457 3456 34578 567)
   
   def setup
     nonary_game = NonaryGame.new

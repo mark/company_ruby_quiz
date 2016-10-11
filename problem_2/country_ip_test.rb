@@ -1,7 +1,7 @@
-require 'test/unit'
+require 'minitest/autorun'
 require './country_ip'
 
-class CountryIpTest < Test::Unit::TestCase
+class CountryIpTest < Minitest::Test
 
   def setup
     @country_ip = CountryIp.new
